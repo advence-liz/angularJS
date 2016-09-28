@@ -1,5 +1,6 @@
 # angularJS
 ## angular guide
+
 - <a href="https://code.angularjs.org/1.1.0/docs/api">英文API</a>
 - <a href="http://www.cnblogs.com/ys-ys/tag/AngularJs%20Api/">中文API---野兽</a>
 - <a href="https://github.com/johnpapa/angular-styleguide">angular style guide</a>
@@ -9,6 +10,7 @@
 - <a href="http://www.cnblogs.com/cunjieliu/category/568601.html">angular 指令分析---雷锋叔叔</a>
 - <a href="http://www.cnblogs.com/lvdabao/tag/AngularJs/">angular 指令分析---吕大豹</a>
 - <a href="http://www.cnblogs.com/whitewolf/category/404298.html">angular 系列---破狼</a>
+
 ## 本工程使用说明：
 - 先安装node然后全局安装gulp，bower,npm(npm一般安装node时就默认安装)
   
