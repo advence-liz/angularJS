@@ -1,0 +1,25 @@
+{
+  "name": "angular-liz",
+  "homepage": "https://github.com/advence-liz/angularJS",
+  "authors": [
+    "advence-liz <1012515183@qq.com>"
+  ],
+  "description": "for angularJS",
+  "main": "",
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "jquery-ui": "jqueryui#^1.12.1",
+    "jquery": "^3.1.1"
+  }
+}
