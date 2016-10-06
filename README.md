@@ -15,8 +15,9 @@
 - 先安装node然后全局安装gulp，bower,npm(npm一般安装node时就默认安装)
   
   1.安装gulp :
+
   ```bash
-  $ npm install -g gulp 
+    $ npm install -g gulp 
   ```
   2.安装bower
 

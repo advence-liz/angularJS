@@ -11,40 +11,40 @@ gulp.task("clean", function () {
     return gulp.src("dist/", { read: false }).pipe(clean());
 });
 
-gulp.task('copy:js',["clean"], function () {
+gulp.task("copy:js",["clean"], function () {
     return gulp
         .src([
-            'bower_components/jquery/dist/jquery.js',
-            'bower_components/angular/angular.js',
-            'bower_components/bootstrap/dist/js/bootstrap.js',
-            'bower_components/jquery-ui/jquery-ui.js'
+            "bower_components/jquery/dist/jquery.js",
+            "bower_components/angular/angular.js",
+            "bower_components/bootstrap/dist/js/bootstrap.js",
+            "bower_components/jquery-ui/jquery-ui.js"
             
         ])
         .pipe(
-            gulp.dest('dist/js/')
-        )
+            gulp.dest("dist/js/")
+        );
       
 });
 
-gulp.task('copy:css',["clean"],function(){
+gulp.task("copy:css",["clean"],function(){
     return gulp
           .src([
-              'bower_components/jquery-ui/themes/base/jquery-ui.css',
-              'bower_components/bootstrap/dist/css/bootstrap.css'
+              "bower_components/jquery-ui/themes/base/jquery-ui.css",
+              "bower_components/bootstrap/dist/css/bootstrap.css"
           ])
            .pipe(
-            gulp.dest('dist/css/')
-        )
-})
+            gulp.dest("dist/css/")
+        );
+});
 
-gulp.task('copy:fonts',["clean"],function(){
+gulp.task("copy:fonts",["clean"],function(){
     return gulp
           .src([
-              'bower_components/bootstrap/dist/fonts/**'
+              "bower_components/bootstrap/dist/fonts/**"
           ])
            .pipe(
-            gulp.dest('dist/font/')
-        )
-})
+            gulp.dest("dist/font/")
+        );
+});
 
 gulp.task("default", ["copy:js", "copy:css","copy:fonts"]);
