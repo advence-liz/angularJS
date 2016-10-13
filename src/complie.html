@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="zh-cn" ng-app="MainApp">
+
 <head>
-    <meta charset="UTF-8">
-    <title>complie</title>
+	<meta charset="UTF-8">
+	<title>complie</title>
+	<script src="./js/liz.js"></script>
 </head>
+
 <body>
-    <div ng-controller="EventController">
-        <!--<parent></parent>-->
-        <div class="111">
-            <!--<levelout></levelout>-->
-        </div>
-        <div>
-            <levelout1></levelout1>
-            <levelout2></levelout2>
-            <level-one>
+	<div ng-controller="EventController">
+		<!--<parent></parent>-->
+		<div class="111">
+			<!--<levelout></levelout>-->
+		</div>
+		<div>
+			<levelout1></levelout1>
+			<levelout2></levelout2>
+			<level-one>
 
-                <level-two>
+				<level-two>
 
-                    <level-three>
+					<level-three>
 
-                        Hello
+						Hello
 
-                    </level-three>
+					</level-three>
 
-                </level-two>
+				</level-two>
 
-            </level-one>
-            <!--<ul level-one> ng-repeat 比较特殊 此时先跑 leve-one  且ng-repeat中的 level-two compile 函数只跑一遍 （就是编译过程中跑一遍把link 注入）
+			</level-one>
+			<!--<ul level-one> ng-repeat 比较特殊 此时先跑 leve-one  且ng-repeat中的 level-two compile 函数只跑一遍 （就是编译过程中跑一遍把link 注入）
                 <li ng-repeat="item in liz" level-two>
                     {{item}}<level-three>dddd</level-three>
                 </li>
             </ul>-->
 
-            <!--<oneafter></oneafter>-->
-        </div>
-    </div>
+			<!--<oneafter></oneafter>-->
+		</div>
+	</div>
 
-    <script src="../dist/js/angular.js"></script>
-    <script type="text/javascript">
+	<script src="../dist/js/angular.js"></script>
+	<script type="text/javascript">
         // Teach the injector how to build a 'greeter'
         // Notice that greeter itself is dependent on '$window'
         // Teach the injector how to build a 'greeter'
 
         var mainApp = angular.module('MainApp' , []);
-        function createDirective(name) {//通过闭包保留name
+      function createDirective(name) {//通过闭包保留name
 
-            return function () {
+          function directiveInit (window) {
 
-                return {
+                    return {
 
                     restrict: 'AE',
 
@@ -65,7 +68,7 @@
 
                             post: function (scope, iElem, iAttrs) {
 
-                                console.log(name + ': post link');
+                              window.liz.print(name + ': post link');
 
                             }
 
@@ -76,6 +79,8 @@
                 }
 
             }
+            directiveInit.$inject = ['$window'];   
+            return directiveInit;
 
         }
         mainApp.directive('parent', createDirective('parent'));
@@ -96,7 +101,9 @@
         mainApp.controller( "EventController", myController);
         //ng-controller已经在背后默默地做了这个事情
         //injector.instantiate(MyController);
+        
 
     </script>
 </body>
-</html>
+
+</html>`
