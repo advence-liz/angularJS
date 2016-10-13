@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>angular</title>
+    <link href="../dist/css/jquery-ui.css" rel="stylesheet" />
+    <link href="../dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="../dist/js/jquery.js"></script>
+    <script src="../dist/js/jquery-ui.js"></script>
+    <script src="../dist/js/angular.js"></script>
+    <script src="./js/template.js"></script>
+    <script src="./js/liz.js"></script>
+</head>
+<body  ng-app="mainApp" ng-controller="mainController">
+    <header>
+      <h1>{{subject}}</h1>
+    </header>
+    <section>
+
+    </section>
+  <footer>{{author}}</footer>
+    <!--<script type="text/javascript">
+    var mainApp = angular.module("mainApp",[]);
+        mainApp.controller("mainController", ['$scope',function Controller($scope) {
+                  $scope.subject="angular";
+                  $scope.author="liz";
+                  
+          
+        }]);
+      
+    </script>-->
+</body>
+</html>

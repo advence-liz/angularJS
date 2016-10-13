@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="MainApp">
+<head>
+    <meta charset="UTF-8">
+    <title>complie</title>
+</head>
+<body>
+    <div ng-controller="EventController">
+        <!--<parent></parent>-->
+        <div class="111">
+            <!--<levelout></levelout>-->
+        </div>
+        <div>
+            <levelout1></levelout1>
+            <levelout2></levelout2>
+            <level-one>
+
+                <level-two>
+
+                    <level-three>
+
+                        Hello
+
+                    </level-three>
+
+                </level-two>
+
+            </level-one>
+            <!--<ul level-one> ng-repeat 比较特殊 此时先跑 leve-one  且ng-repeat中的 level-two compile 函数只跑一遍 （就是编译过程中跑一遍把link 注入）
+                <li ng-repeat="item in liz" level-two>
+                    {{item}}<level-three>dddd</level-three>
+                </li>
+            </ul>-->
+
+            <!--<oneafter></oneafter>-->
+        </div>
+    </div>
+
+    <script src="../dist/js/angular.js"></script>
+    <script type="text/javascript">
+        // Teach the injector how to build a 'greeter'
+        // Notice that greeter itself is dependent on '$window'
+        // Teach the injector how to build a 'greeter'
+
+        var mainApp = angular.module('MainApp' , []);
+        function createDirective(name) {//通过闭包保留name
+
+            return function () {
+
+                return {
+
+                    restrict: 'AE',
+
+                    compile: function (tElem, tAttrs) {
+
+                        console.log(name + ': compile');
+
+                        return {
+
+                            pre: function (scope, iElem, iAttrs) {
+
+                                //console.log(name + ': pre link');
+
+                            },
+
+                            post: function (scope, iElem, iAttrs) {
+
+                                console.log(name + ': post link');
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+        mainApp.directive('parent', createDirective('parent'));
+        mainApp.directive('levelout', createDirective('levelout'));
+        mainApp.directive('levelout1', createDirective('levelout1'));
+        mainApp.directive('levelout2', createDirective('levelout2'));
+        mainApp.directive('levelOne', createDirective('levelOne'));
+        mainApp.directive('oneafter', createDirective('oneAfter'));
+        mainApp.directive('levelTwo', createDirective('levelTwo'));
+
+        mainApp.directive('levelThree', createDirective('levelThree'));
+        var myController = function ($scope) {
+            $scope.liz = [1, 2, 3];
+        };
+        myController.$inject = [ '$scope'];//在angularjs中我们可以利用$inject标注DI注入,这里需要注入服务名称的顺序和构造参数名对应.这里可以解决以上约定的死板性.
+
+
+        mainApp.controller( "EventController", myController);
+        //ng-controller已经在背后默默地做了这个事情
+        //injector.instantiate(MyController);
+
+    </script>
+</body>
+</html>
