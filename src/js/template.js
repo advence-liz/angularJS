@@ -1,12 +1,24 @@
 //javascript code
-+function(window,angular){
-     
-      var mainApp = angular.module("mainApp",[]);
-        mainApp.controller("mainController", ['$scope','$controller',function Controller($scope) {
-                  $scope.subject="angular";
-                  $scope.author="liz";
-                  var vm=$scope.vm;
-               
-          
-        }]);
-}(window,window.angular);
+
+
+(function (angular) {
+  'use strict';
+
+  angular.module('app', []);
+  angular.module('app')
+    .controller('MainCtrl', ControllerCtrl);
+
+  /** @ngInject */
+  function ControllerCtrl(window) {
+    var vm = this;
+    vm.author = 'liz';
+    vm.subject='angular';
+    // init();
+
+    // function init() {
+    // }
+    
+  }
+ ControllerCtrl.$inject = ['$window'];//
+} (window.angular));
+

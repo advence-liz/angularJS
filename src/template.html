@@ -11,23 +11,39 @@
     <script src="./js/template.js"></script>
     <script src="./js/liz.js"></script>
 </head>
-<body  ng-app="mainApp" ng-controller="mainController">
+<body  ng-app="app" ng-controller="MainCtrl as vm">
     <header>
-      <h1>{{subject}}</h1>
+      <h1>{{vm.subject}}</h1>
     </header>
     <section>
      
     </section>
-  <footer>{{author}}</footer>
-    <!--<script type="text/javascript">
-    var mainApp = angular.module("mainApp",[]);
-        mainApp.controller("mainController", ['$scope',function Controller($scope) {
-                  $scope.subject="angular";
-                  $scope.author="liz";
-                  
-          
-        }]);
-      
-    </script>-->
+  <footer>{{vm.author}}</footer>
+<script>
+        
+// (function (angular) {
+//   'use strict';
+
+//   angular.module('app', []);
+//   angular.module('app')
+//     .controller('MainCtrl', ControllerCtrl);
+
+//   /** @ngInject */
+//   function ControllerCtrl(window) {
+//     var vm = this;
+//     vm.author = 'liz';
+//     vm.subject='angular';
+//     // init();
+
+//     // function init() {
+//     // }
+    
+//   }
+//  ControllerCtrl.$inject = ['$window'];//
+// } (window.angular));
+
+
+
+</script>
 </body>
 </html>
