@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>angular</title>
+    <link href="../dist/css/jquery-ui.css" rel="stylesheet" />
+    <link href="../dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="../dist/js/jquery.js"></script>
+    <script src="../dist/js/jquery-ui.js"></script>
+    <script src="../dist/js/angular.js"></script>
+    <!--<script src="./js/template.js"></script>-->
+    <script src="./js/liz.js"></script>
+</head>
+<body  ng-app="app" ng-controller="MainCtrl as vm">
+    <header>
+      <h1>bindToController</h1>
+      <a href="https://toddmotto.com/no-scope-soup-bind-to-controller-angularjs/" target="_blank">参考链接</a>
+    </header>
+    <section>
+      <input ng-model="vm.name"/>
+     <foo-directive name="vm.name"></foo-directive>
+    </section>
+  <footer>liz</footer>
+    <script type="text/javascript">
+  
+angular
+    .module('app', []);
+
+// main.js
+function MainCtrl() {
+    this.name = 'Todd Motto';
+}
+
+angular
+    .module('app')
+    .controller('MainCtrl', MainCtrl);
+
+// foo.js
+function FooDirCtrl() {
+  var vm=this;
+  vm.liz="liz";
+}
+
+function fooDirective() {
+    
+    function link($scope) {
+        
+    }
+    
+    return {
+        restrict: 'E',
+        scope: {
+            name: '='
+        },
+        controller: 'FooDirCtrl',
+        controllerAs: 'vm',
+        bindToController: true,
+        template: [
+            '<p>{{vm.liz}}<p/>'+
+            '<div><input ng-model="vm.name"></div>'
+        ].join(''),
+        link: link
+    };
+}
+
+angular
+    .module('app')
+    .directive('fooDirective', fooDirective)
+    .controller('FooDirCtrl', FooDirCtrl);
+      
+
+    </script>
+</body>
+</html>
