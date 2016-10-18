@@ -15,6 +15,8 @@
     <header>
       <h1>bindToController</h1>
       <a href="https://toddmotto.com/no-scope-soup-bind-to-controller-angularjs/" target="_blank">参考链接</a>
+      <a href="http://blog.thoughtram.io/angularjs/2015/01/02/exploring-angular-1.3-bindToController.html" target="_blank">参考链接</a>
+      
     </header>
     <section>
       <input ng-model="vm.name"/>
@@ -50,11 +52,13 @@ function fooDirective() {
     return {
         restrict: 'E',
         scope: {
-            name: '='
+           
         },
         controller: 'FooDirCtrl',
         controllerAs: 'vm',
-        bindToController: true,
+        bindToController: {
+             name: '='
+        },
         template: [
             '<p>{{vm.liz}}<p/>'+
             '<div><input ng-model="vm.name"></div>'
