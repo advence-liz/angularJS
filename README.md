@@ -10,6 +10,9 @@
 - <a href="http://www.cnblogs.com/cunjieliu/category/568601.html">angular 指令分析---雷锋叔叔</a>
 - <a href="http://www.cnblogs.com/lvdabao/tag/AngularJs/">angular 指令分析---吕大豹</a>
 - <a href="http://www.cnblogs.com/whitewolf/category/404298.html">angular 系列---破狼</a>
+- <a href="http://www.cnblogs.com/web2-developer/category/751303.html">angular 源码解析系列---王大鹏</a>
+- <a href="http://purplebamboo.github.io/2015/05/27/use-200-line-code-to-implementation-a-simple-angular/">angular-light</a>
+
 
 ## 本工程使用说明：
 - 先安装node然后全局安装gulp，bower,npm(npm一般安装node时就默认安装)
