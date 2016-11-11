@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>angular route</title>
+    <link href="../dist/css/jquery-ui.css" rel="stylesheet" />
+    <link href="../dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="../dist/js/jquery.js"></script>
+    <script src="../dist/js/jquery-ui.js"></script>
+    <script src="../dist/js/angular.js"></script>
+    <script src="../dist/js/angular-route.js"></script>
+    <script src="./js/route.js"></script>
+    <script src="./js/liz.js"></script>
+</head>
+<body  ng-app="app" ng-controller="MainCtrl as vm">
+    <header>
+      <h1>{{vm.subject}}</h1>
+    </header>
+    <section>
+     <div ng-view></div>
+    </section>
+  <footer>{{vm.author}}</footer>
+<script>
+        
+// (function (angular) {
+//   'use strict';
+
+//   angular.module('app', []);
+//   angular.module('app')
+//     .controller('MainCtrl', ControllerCtrl);
+
+//   /** @ngInject */
+//   function ControllerCtrl(window) {
+//     var vm = this;
+//     vm.author = 'liz';
+//     vm.subject='angular';
+//     // init();
+
+//     // function init() {
+//     // }
+    
+//   }
+//  ControllerCtrl.$inject = ['$window'];//
+// } (window.angular));
+
+
+
+</script>
+</body>
+</html>

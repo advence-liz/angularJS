@@ -8,7 +8,9 @@
   angular.module('app')
     .controller('MainCtrl', ControllerCtrl);
 
-  /** @ngInject */
+  /** @ngInject 
+   * @controller
+   */
   function ControllerCtrl(window) {
     var vm = this;
     vm.author = 'liz';

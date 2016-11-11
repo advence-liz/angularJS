@@ -21,6 +21,7 @@
     "angular": "^1.5.8",
     "jquery-ui": "jqueryui#^1.12.1",
     "jquery": "^3.1.1",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "angular-route": "^1.5.8"
   }
 }
