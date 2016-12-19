@@ -14,13 +14,13 @@
   function ControllerCtrl(window) {
     var vm = this;
     vm.author = 'liz';
-    vm.subject='angular';
+    vm.subject = 'angular';
     // init();
 
     // function init() {
     // }
-    
+
   }
- ControllerCtrl.$inject = ['$window'];//
+  ControllerCtrl.$inject = ['$window'];//
 } (window.angular));
 

@@ -38,21 +38,6 @@
   }
   ControllerCtrl.$inject = ['$window'];//
 
-function Universe() {
-// the cached instance
-var instance = this;
-// proceed as normal
-this.start_time = 0;
-this.bang = "Big";
-// rewrite the constructor
-Universe = function () {
-return instance;
-};
 
-}
-// testing
-var uni = new Universe();
-var uni2 = new Universe();
-uni === uni2; // true
 } (window.angular));
 
