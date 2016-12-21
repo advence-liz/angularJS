@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>angular</title>
+    <link href="../dist/css/jquery-ui.css" rel="stylesheet" />
+    <link href="../dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="../dist/js/jquery.js"></script>
+    <script src="../dist/js/jquery-ui.js"></script>
+    <script src="../dist/js/angular.js"></script>
+   <script src="../dist/js/angular-animate.js"></script>
+ 
+ 
+    
+</head>
+<style>
+.ng-enter{
+    background: gold;
+}
+
+.fade-in.ng-enter {
+opacity: 0;
+}
+.fade-in.ng-enter.ng-enter-active {
+opacity: 1;
+}
+</style>
+<body ng-app="app" ng-controller="MainCtrl as vm">
+    <header>
+        <h1>{{vm.subject}}</h1>
+    </header>
+    <section>
+        <ul>
+            <li class="fade-in" ng-repeat="r in roommates">
+                {{ r }}
+            </li>
+        </ul>
+    </section>
+    <footer>{{vm.author}}</footer>
+       <script src="./js/repeat.js"></script>
+    <script>
+// angular.module('app', ['ng']);
+// var app = angular.injector(['app']);
+// var $animate = app.get("$animate");
+// var element =$('li');
+//  $animate.on('enter', element,
+//           function callback(element, phase) {
+//             // cool we detected an enter animation within the container
+//             debugger;
+//            }
+//        );
+
+
+
+
+</script>
+</body>
+
+</html>

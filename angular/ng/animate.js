@@ -258,7 +258,7 @@ var $AnimateProvider = ['$provide', /** @this */ function($provide) {
     }
     return this.$$classNameFilter;
   };
-
+    
   this.$get = ['$$animateQueue', function($$animateQueue) {
     function domInsert(element, parentElement, afterElement) {
       // if for some reason the previous element was removed
@@ -451,7 +451,7 @@ var $AnimateProvider = ['$provide', /** @this */ function($provide) {
         after = after && jqLite(after);
         parent = parent || after.parent();
         domInsert(element, parent, after);
-        return $$animateQueue.push(element, 'enter', prepareAnimateOptions(options));
+        return $$animateQueue.push(element, 'enter', prepareAnimateOptions(options));//确保原生生成后添加动画效果
       },
 
       /**

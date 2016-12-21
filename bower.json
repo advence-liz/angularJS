@@ -18,10 +18,11 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.5.8",
+    "angular": "^1.6.0",
     "jquery-ui": "jqueryui#^1.12.1",
     "jquery": "^3.1.1",
     "bootstrap": "^3.3.7",
+    "angular-animate":"^1.6.0",
     "angular-route": "^1.5.8"
   }
 }
