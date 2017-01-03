@@ -65,6 +65,7 @@ angular 中分为两种依赖全局依赖（Service，Directive，controller）�
 controller 某种意义上相当于程序入口,controller 中需要注入全局依赖和局部依赖
 
 ## animate 
+```
     angular的animate 模块如果没有引用"ng-animate"默认的animate 没有实现任何动画效果，只是通过DOM更新操作，returned runner promise；
     即将所有DOM操作行为存储到 Queue 中在 Digest 结束循环执行达到同步DOM操作的结果。（一共下面这几种Queue 具体哪个干什么不清楚了，代码看着还忧伤）
      Default implementation of $animate that doesn't perform any animations, instead just
@@ -73,9 +74,11 @@ controller 某种意义上相当于程序入口,controller 中需要注入全局
     var asyncQueue = $rootScope.$$asyncQueue = [];
     var postDigestQueue = $rootScope.$$postDigestQueue = [];
     var applyAsyncQueue = $rootScope.$$applyAsyncQueue = [];
+
     $$animateQueue.push(null,null,null,function(){
       window.console.log('eeee');
     });
 加一个 $$animateQueue service
-把 resetTabElement 的异步队列后面
+把回掉函数的异步队列后面
 此方法过于凶残
+```
