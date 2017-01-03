@@ -59,9 +59,23 @@ $http({
 ，更多时候是让页面结构语义化，当你所做的一切都按照从优的设计原则时，当有需求变更的时候常常会意想不到容易扩展，这时兴许你该感谢深思熟虑的自己。
 
 - 装饰型指令就是给DOM元素添加修饰常见的有对DOM attr的操作，对样式的操作，对事件的操作，对一些交互的操作（其实列的那些很有规律，就是DOM本该有的行为Angular封装方式）。
-## animate 
+## controller 
+provider 的出口为this.$get 是一个函数方面扩展（如 service，factory,.....）以为config 提供的可能性
+angular 中分为两种依赖全局依赖（Service，Directive，controller），局部依赖（scope),全局依赖以单例形式保存
+controller 某种意义上相当于程序入口,controller 中需要注入全局依赖和局部依赖
 
+## animate 
+    angular的animate 模块如果没有引用"ng-animate"默认的animate 没有实现任何动画效果，只是通过DOM更新操作，returned runner promise；
+    即将所有DOM操作行为存储到 Queue 中在 Digest 结束循环执行达到同步DOM操作的结果。（一共下面这几种Queue 具体哪个干什么不清楚了，代码看着还忧伤）
+     Default implementation of $animate that doesn't perform any animations, instead just
+     synchronously performs DOM updates and resolves the returned runner promise.
     //The internal queues. Expose them on the $rootScope for debugging/testing purposes.
     var asyncQueue = $rootScope.$$asyncQueue = [];
     var postDigestQueue = $rootScope.$$postDigestQueue = [];
     var applyAsyncQueue = $rootScope.$$applyAsyncQueue = [];
+    $$animateQueue.push(null,null,null,function(){
+      window.console.log('eeee');
+    });
+加一个 $$animateQueue service
+把 resetTabElement 的异步队列后面
+此方法过于凶残
