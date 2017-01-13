@@ -48,19 +48,33 @@ function fooDirective() {
         
     }
     
-    return {
+    // return {
+    //     restrict: 'E',
+    //     scope: {
+           
+    //     },
+    //     controller: 'FooDirCtrl',
+    //     controllerAs: 'ctr',
+    //     bindToController: {
+    //          name: '='
+    //     },
+    //     template: [
+    //         '<p>{{ctr.liz}}<p/>'+
+    //         '<div><input ng-model="ctr.name"></div>'
+    //     ].join(''),
+    //     link: link
+    // };
+     return {
         restrict: 'E',
         scope: {
-           
+            name: '='
         },
         controller: 'FooDirCtrl',
-        controllerAs: 'vm',
-        bindToController: {
-             name: '='
-        },
+        controllerAs: 'ctr',
+        bindToController: true,
         template: [
-            '<p>{{vm.liz}}<p/>'+
-            '<div><input ng-model="vm.name"></div>'
+            '<p>{{ctr.liz}}<p/>'+
+            '<div><input ng-model="ctr.name"></div>'
         ].join(''),
         link: link
     };
