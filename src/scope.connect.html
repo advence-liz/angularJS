@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>angular</title>
+    <link href="../dist/css/jquery-ui.css" rel="stylesheet" />
+    <link href="../dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="../dist/js/jquery.js"></script>
+    <script src="../dist/js/jquery-ui.js"></script>
+    <script src="../dist/js/angular.js"></script>
+    <script src="./js/template.js"></script>
+    <script src="./js/liz.js"></script>
+</head>
+<body  ng-app="app" ng-controller="MainCtrl as vm">
+    <header>
+      <h1>{{vm.subject}}</h1>
+      <p>$broadcast,$emit 触发的事件同级的都能接收到</p>
+      <button ng-click="vm.click()">click</button>
+      <p> 父与子scope 之所以没什么关系是因为虽然scope 是原型继承的但是，但是我们操作的是scope 中俩个不同的属性</p>
+    </header>
+    <section ng-controller="ChildCtrl as child">
+        <p>两个child scope 之间并没有什么关系，只是用同一个constructor 创建的俩个scope 对象</p>
+           <input ng-model="child.author" />
+        <p>但是由于原型继承它能得到父scope 中的vm.author</p>
+        <P>{{vm.author}}</P>
+    </section>
+      <section ng-controller="ChildCtrl as child">
+     <input ng-model="child.author" />
+    </section>
+    <section ng-controller="ChildCtrl as vm">
+        <h2>{{$id}}</h2>
+         <input ng-model="vm.subject" />
+    </section>
+  <footer> <input ng-model="vm.author" /></footer>
+<script>
+        
+(function (angular) {
+  'use strict';
+
+  angular.module('app', []);
+  angular.module('app')
+    .controller('MainCtrl', ControllerCtrl);
+
+  /** @ngInject */
+  function ControllerCtrl(window,$scope) {
+    var vm = this;
+    vm.author = 'liz';
+    vm.subject='angular';
+    // init();
+
+    // function init() {
+    // }
+    vm.click=function(){
+        $scope.$broadcast('jj');
+    }
+      $scope.$on("jj",function(){
+       alert('main');
+   })
+  }
+ ControllerCtrl.$inject = ['$window','$scope'];//
+
+ //child controller
+  angular.module('app')
+    .controller('ChildCtrl', controllerChild);
+
+ function controllerChild(window,$scope){
+     this.author = "child";
+   $scope.$on("jj",function(){
+       alert('child');
+   })
+ }
+ controllerChild.$inject = ['$window','$scope'];//
+} (window.angular));
+
+
+
+</script>
+</body>
+</html>
